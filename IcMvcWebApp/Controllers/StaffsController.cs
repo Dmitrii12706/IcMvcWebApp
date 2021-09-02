@@ -73,7 +73,9 @@ namespace IcMvcWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleName"] = new SelectList(_context.Roles, "RoleName", "RoleName", staff.RoleName);
+
+            //ViewData["RoleName"] = new SelectList(_context.Roles, "RoleName", "RoleName", staff.RoleName);
+
             return View(staff);
         }
 
@@ -90,7 +92,10 @@ namespace IcMvcWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["RoleName"] = new SelectList(_context.Roles, "RoleName", "RoleName", staff.RoleName);
+
+            //ViewData["RoleName"] = new SelectList(_context.Roles, "RoleName", "RoleName", staff.RoleName);
+            
+            
             return View(staff);
         }
 
