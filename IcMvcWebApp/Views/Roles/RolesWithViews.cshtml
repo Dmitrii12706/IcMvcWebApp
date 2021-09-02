@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IcMvcWebApp.Models.Role>
+
+@{
+    ViewData["Title"] = "RolesWithViews";
+}
+
+<h1>RolesWithViews</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    @foreach (var s in item.Staff)
+                    {
+                        <div>
+                            @Html.DisplayFor(modelItem => s.FirstName)
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
