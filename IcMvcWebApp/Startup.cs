@@ -27,7 +27,7 @@ namespace IcMvcWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MvcContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("LessonsDS")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddDatabaseDeveloperPageExceptionFilter();
 

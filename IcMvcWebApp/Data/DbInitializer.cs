@@ -17,26 +17,30 @@ namespace IcMvcWebApp.Data
             {
                 return;   // DB has been seeded
             }
-            var roles = new List<Role>
+
+            var staffs = new Staff[]
             {
-                new Role{RoleName="Tutor"},
-                new Role{RoleName="Student"},
+            new Staff{FirstName="Carson",LastName="Alexander",Location="Auckland",RoleName="Tutor"},
+            new Staff{FirstName="Dmitrii",LastName="Kotov",Location="Auckland",RoleName="Tutor"},
+            new Staff{FirstName="Nina",LastName="Bespalova",Location="Auckland",RoleName="Tutor"},
+            new Staff{FirstName="Denis",LastName="Ten",Location="Auckland",RoleName="Student"},
+            new Staff{FirstName="Liza",LastName="Alpach",Location="Aus",RoleName="Student"},//,Archivied=""
             };
-            
-            context.AddRange(roles);   
+            foreach (Staff s in staffs)
+            {
+                context.Staffs.Add(s);
+            }
             context.SaveChanges();
 
-            var staffs = new List<Staff>
+            var roles = new Role[]
             {
-                new Staff{FirstName="Carson",LastName="Alexander",Location="Auckland", Archivied=true, Role=roles[0]},
-                new Staff{FirstName="Dmitrii",LastName="Kotov",Location="Auckland", Archivied=false, Role=roles[1]},
-                new Staff{FirstName="Nina",LastName="Bespalova",Location="Auckland", Archivied=true, Role=roles[0]},
-                new Staff{FirstName="Denis",LastName="Ten",Location="Auckland", Archivied=true, Role=roles[1]},
-                new Staff{FirstName="Liza",LastName="Alpach",Location="Aus", Archivied=false, Role=roles[0]},//,Archivied=""
+            new Role{RoleName="Tutor"},
+            new Role{RoleName="Student"},
             };
-            
-            context.AddRange(staffs);   
-
+            foreach (Role e in roles)
+            {
+                context.Roles.Add(e);
+            }
             context.SaveChanges();
         }
     }
